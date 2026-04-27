@@ -54,51 +54,70 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
         } as React.CSSProperties
       }
     >
-      {/* Gradient header area (simulates album art) */}
+      {/* Gradient header area (with album art) */}
       <div
-        className="h-44 relative overflow-hidden"
+        className="h-44 w-full relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${themeConfig.primary}40, ${themeConfig.accent || themeConfig.primary}20, transparent)`,
         }}
       >
+        {/* Album Cover Image */}
+        {album.coverUrl && (
+          <img
+            src={album.coverUrl}
+            alt={album.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        )}
+
+        {/* Overlay for better text legibility if needed, plus the existing gradient */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        />
+
         {/* Era label */}
-        <div className="absolute top-3 left-3">
+        <div className="absolute top-5 p-3 left-5 z-10">
           <span
-            className={`text-xs px-2.5 py-1 rounded-full ${typeBadgeColors[album.albumType] || typeBadgeColors.studio}`}
+            className={`text-xs px-2.5 py-3 rounded-full 
+              ${typeBadgeColors[album.albumType] || typeBadgeColors.studio}`}
           >
             {album.albumType.toUpperCase()}
           </span>
         </div>
 
         {/* Track count */}
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-5 right-5 z-10">
           <span
-            className="text-xs px-2.5 py-1 rounded-full"
+            className="text-xs px-3.5 py-2 rounded-full shadow-lg"
             style={{
-              background: `${themeConfig.primary}20`,
-              color: themeConfig.primary,
+              background: `${themeConfig.primary}dd`,
+              color: "#fff",
+              fontWeight: "bold",
+              padding: "5px",
+             
             }}
           >
             {album.trackCount} faixas
           </span>
         </div>
 
-        {/* Large album initial */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="text-7xl font-bold opacity-10 select-none"
-            style={{ color: themeConfig.primary }}
-          >
-            {album.title.charAt(0)}
-          </span>
-        </div>
+        {/* Large album initial (hidden if cover is present) */}
+        {!album.coverUrl && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span
+              className="text-6xl font-bold opacity-10 select-none"
+              style={{ color: themeConfig.primary, marginTop: "3rem" }}
+            >
+              {album.title.charAt(0)}
+            </span>
+          </div>
+        )}
 
         {/* Korean title */}
         {album.titleKo && (
-          <div className="absolute bottom-3 left-3">
+          <div className="absolute bottom-3 left-3 z-10">
             <span
-              className="text-xs opacity-50"
-              style={{ color: themeConfig.primary }}
+              className="text-xs font-bold text-white drop-shadow-md"
             >
               {album.titleKo}
             </span>
@@ -107,23 +126,23 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
 
         {/* Active indicator ring */}
         {isActive && (
-          <div className="absolute inset-0 border-2 rounded-t-2xl animate-pulse-glow"
+          <div className="absolute inset-0 border-2 rounded-t-2xl animate-pulse-glow z-20"
             style={{ borderColor: themeConfig.primary }}
           />
         )}
       </div>
 
       {/* Card body */}
-      <div className="p-8 sm:p-10 flex flex-col items-center text-center">
-        <div className="mb-5">
+      <div className="p-10 sm:p-14 lg:p-16 flex flex-col items-center text-center flex-grow">
+        <div className="mb-8 flex flex-col gap-2">
           <h3
-            className="font-bold text-xl leading-snug group-hover:opacity-100 transition-opacity"
-            style={{ color: "var(--theme-text)" }}
+            className="font-bold text-xl leading-snug group-hover:opacity-100 transition-opacity "
+            style={{ color: "var(--theme-text)", marginTop: "0.3rem", padding: "1rem" }}
           >
             {album.title}
           </h3>
           <span
-            className="text-sm font-mono mt-1 block"
+            className="text-sm font-mono"
             style={{ color: themeConfig.primary }}
           >
             {releaseYear}
@@ -131,7 +150,7 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
         </div>
 
         <p
-          className="text-xs mb-6 uppercase tracking-[0.2em]"
+          className="text-xs mb-8 uppercase tracking-[0.3em] font-medium opacity-70"
           style={{ color: "var(--theme-text-muted)" }}
         >
           Era {album.era}
@@ -139,15 +158,15 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
 
         {album.description && (
           <p
-            className="text-sm leading-loose line-clamp-3"
-            style={{ color: "var(--theme-text-muted)" }}
+            className="text-sm leading-relaxed line-clamp-3 opacity-90"
+            style={{ color: "var(--theme-text-muted)", marginBottom: "1.4rem", marginTop: "1rem" }}
           >
             {album.description}
           </p>
         )}
 
         {/* Theme preview bar */}
-        <div className="mt-6 flex flex-col items-center gap-3">
+        <div className="mt-12 flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
             <div
               className="w-4 h-4 rounded-full border"

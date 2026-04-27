@@ -15,6 +15,7 @@ async function main() {
       era: "Trilogia Escolar",
       releaseDate: new Date("2013-06-13"),
       albumType: "single",
+      coverUrl: "/images/album/2cool4skool.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-zinc-900",
         primary: "#E11D48",
@@ -31,6 +32,7 @@ async function main() {
       era: "Trilogia Escolar",
       releaseDate: new Date("2014-08-19"),
       albumType: "studio",
+      coverUrl: "/images/album/darkandwild.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-neutral-950",
         primary: "#DC2626",
@@ -47,6 +49,7 @@ async function main() {
       era: "HYYH",
       releaseDate: new Date("2015-04-29"),
       albumType: "mini",
+      coverUrl: "/images/album/themostbeautifulmomentinlife.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-sky-50",
         primary: "#0369A1",
@@ -63,6 +66,7 @@ async function main() {
       era: "Wings",
       releaseDate: new Date("2016-10-10"),
       albumType: "studio",
+      coverUrl: "/images/album/wings.png",
       themeConfig: JSON.stringify({
         bg: "bg-stone-950",
         primary: "#991B1B",
@@ -79,6 +83,7 @@ async function main() {
       era: "Love Yourself",
       releaseDate: new Date("2017-09-18"),
       albumType: "mini",
+      coverUrl: "/images/album/her.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-pink-50",
         primary: "#EC4899",
@@ -95,6 +100,7 @@ async function main() {
       era: "Love Yourself",
       releaseDate: new Date("2018-05-18"),
       albumType: "studio",
+      coverUrl: "/images/album/tear.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-slate-900",
         primary: "#3B82F6",
@@ -111,6 +117,7 @@ async function main() {
       era: "Love Yourself",
       releaseDate: new Date("2018-08-24"),
       albumType: "compilation",
+      coverUrl: "/images/album/answer.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-violet-950",
         primary: "#8B5CF6",
@@ -127,6 +134,7 @@ async function main() {
       era: "Map of the Soul",
       releaseDate: new Date("2020-02-21"),
       albumType: "studio",
+      coverUrl: "/images/album/mapofthsoul7.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-indigo-950",
         primary: "#818CF8",
@@ -143,6 +151,7 @@ async function main() {
       era: "BE",
       releaseDate: new Date("2020-11-20"),
       albumType: "studio",
+      coverUrl: "/images/album/be.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-slate-50",
         primary: "#1E3A8A",
@@ -159,6 +168,7 @@ async function main() {
       era: "Proof",
       releaseDate: new Date("2022-06-10"),
       albumType: "anthology",
+      coverUrl: "/images/album/proof.jpg",
       themeConfig: JSON.stringify({
         bg: "bg-zinc-900",
         primary: "#A1A1AA",

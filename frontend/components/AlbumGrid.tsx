@@ -42,7 +42,7 @@ export default function AlbumGrid({ albums }: AlbumGridProps) {
           style={{ paddingTop: "6rem" }}
         >
           {albums.map((album, index) => (
-            <div key={album.id} className="w-full sm:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.66rem)] xl:w-[calc(25%-1.875rem)] min-w-[280px] max-w-[320px]">
+            <div key={album.id} className="w-full sm:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.66rem)] xl:w-[calc(25%-1.875rem)] min-w-[280px] max-w-[400px]">
               <AlbumCard album={album} index={index} />
             </div>
           ))}

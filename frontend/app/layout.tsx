@@ -51,6 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
       <body className="antialiased">
         <ThemeProvider>{children}</ThemeProvider>

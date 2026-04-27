@@ -55,12 +55,7 @@ export default function Hero() {
           }}
         >
           ARMY
-          <span
-            className="block text-3xl md:text-4xl lg:text-5xl mt-2 font-light"
-            style={{ color: "var(--theme-text)" }}
-          >
-            Portal
-          </span>
+         
         </h1>
 
         <p
