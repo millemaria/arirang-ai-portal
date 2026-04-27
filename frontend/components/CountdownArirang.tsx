@@ -41,7 +41,7 @@ function DigitBox({ value, label }: { value: number; label: string }) {
   const display = String(value).padStart(2, "0");
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-4">
       <div className="countdown-digit">
         {display}
       </div>
@@ -103,7 +103,10 @@ export default function CountdownArirang() {
       <div className="w-full max-w-6xl">
 
         {/* Section header */}
-        <div className="flex flex-col items-center gap-4 mb-32 animate-fade-in-up">
+        <div 
+          className="flex flex-col items-center gap-4 animate-fade-in-up"
+          style={{ paddingBottom: "1rem" }}
+        >
           <span
             className="text-sm tracking-[0.3em] uppercase font-medium"
             style={{ color: "var(--theme-primary)" }}
@@ -118,26 +121,31 @@ export default function CountdownArirang() {
           </h2>
           <p
             className="text-center text-lg max-w-2xl mx-auto leading-relaxed mt-2"
-            style={{ color: "var(--theme-text-muted)" }}
+            style={{ color: "var(--theme-text-muted)"  }}
           >
             Contagem regressiva para o BTS no MorumBIS — Outubro de 2026 💜
           </p>
         </div>
 
         {/* Countdown cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-16 w-full pt-10 lg:mt-10  place-items-center">
+        <div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-10 md:gap-16 w-full place-items-center"
+          style={{ paddingTop: "2rem" }}
+        >
           {countdowns.map((show, i) => (
             <div
               key={i}
-              className="glass-card w-full max-w-[400px] rounded-[32px] pt-24 pb-12 px-8 flex flex-col items-center gap-10 text-center transition-all duration-500 hover:scale-[1.02]"
+              className="glass-card w-full max-w-[400px] rounded-[32px] pt-24 pb-16 px-8 flex flex-col items-center gap-14 text-center transition-all duration-500 hover:scale-[1.02]"
               style={{
                 animationDelay: `${i * 0.15}s`,
-                minHeight: "250px"
+                minHeight: "250px",
+                marginBottom: "6rem",
+                marginTop: "1rem",
               }}
             >
               <h3
                 className="text-xs font-semibold uppercase tracking-[0.2em]"
-                style={{ color: "var(--theme-primary)" }}
+                style={{ color: "var(--theme-primary)", marginBottom: "1rem" }}
               >
                 {show.dateLabel}
               </h3>

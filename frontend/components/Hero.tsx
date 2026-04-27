@@ -64,11 +64,13 @@ export default function Hero() {
         </h1>
 
         <p
-          className="text-center text-lg md:text-xl mb-[150px] animate-fade-in-up leading-relaxed"
+          className="text-center text-lg md:text-xl animate-fade-in-up leading-relaxed"
           style={{
             color: "var(--theme-text-muted)",
             animationDelay: "0.3s",
             opacity: 0,
+            marginBottom: "2rem",
+            marginTop: "1rem",
           }}
         >
           Explore a discografia completa do BTS, acompanhe a contagem regressiva para o{" "}

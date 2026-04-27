@@ -114,8 +114,8 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
       </div>
 
       {/* Card body */}
-      <div className="p-7 flex flex-col items-center text-center">
-        <div className="mb-3">
+      <div className="p-8 sm:p-10 flex flex-col items-center text-center">
+        <div className="mb-5">
           <h3
             className="font-bold text-xl leading-snug group-hover:opacity-100 transition-opacity"
             style={{ color: "var(--theme-text)" }}
@@ -131,7 +131,7 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
         </div>
 
         <p
-          className="text-xs mb-4 uppercase tracking-[0.2em]"
+          className="text-xs mb-6 uppercase tracking-[0.2em]"
           style={{ color: "var(--theme-text-muted)" }}
         >
           Era {album.era}
@@ -139,7 +139,7 @@ export default function AlbumCard({ album, index }: AlbumCardProps) {
 
         {album.description && (
           <p
-            className="text-sm leading-[1.7] line-clamp-3"
+            className="text-sm leading-loose line-clamp-3"
             style={{ color: "var(--theme-text-muted)" }}
           >
             {album.description}
