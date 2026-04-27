@@ -121,7 +121,7 @@ export default function ChatPanel() {
         <div className="glass-card rounded-2xl overflow-hidden">
           {/* Messages area */}
           <div
-            className="h-[450px] overflow-y-auto p-6 space-y-4"
+            className="h-[450px] overflow-y-auto px-8 py-6 space-y-6"
             style={{ scrollbarGutter: "stable" }}
           >
             {messages.map((msg) => (
@@ -130,7 +130,7 @@ export default function ChatPanel() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
               >
                 <div
-                  className={`max-w-[85%] px-4 py-3 ${
+                  className={`max-w-[85%] px-6 py-4 ${
                     msg.role === "user"
                       ? "chat-bubble-user"
                       : "chat-bubble-assistant"
@@ -162,7 +162,7 @@ export default function ChatPanel() {
 
           {/* Suggested questions */}
           {messages.length <= 1 && (
-            <div className="px-6 pb-3 flex flex-wrap gap-2">
+            <div className="px-8 pb-5 pt-2 flex flex-wrap gap-3">
               {suggestedQuestions.map((q) => (
                 <button
                   key={q}
@@ -183,7 +183,7 @@ export default function ChatPanel() {
           {/* Input area */}
           <form
             onSubmit={handleSubmit}
-            className="p-4 flex gap-3"
+            className="p-6 flex gap-4"
             style={{
               borderTop: "1px solid var(--theme-border)",
             }}
