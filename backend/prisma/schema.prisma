@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Album {
+  id          Int      @id @default(autoincrement())
+  title       String
+  titleKo     String?
+  era         String
+  releaseDate DateTime
+  albumType   String
+  coverUrl    String?
+  themeConfig String   // JSON stored as TEXT for SQLite
+  trackCount  Int
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BtsFact {
+  id        Int      @id @default(autoincrement())
+  category  String
+  content   String
+  source    String?
+  createdAt DateTime @default(now())
+}
