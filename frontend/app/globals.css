@@ -191,10 +191,13 @@ p {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes flip {
-  0% { transform: rotateX(0deg); }
-  50% { transform: rotateX(90deg); }
-  100% { transform: rotateX(0deg); }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.4) translateY(0); }
+  50% { opacity: 1; transform: scale(1.2) translateY(-5px); }
+}
+
+.animate-twinkle {
+  animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
 }
 
 .animate-fade-in-up {

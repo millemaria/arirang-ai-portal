@@ -10,6 +10,36 @@ export default function Hero() {
       id="hero"
       className="relative w-full min-h-[85vh] flex flex-col items-center justify-center overflow-hidden px-4"
     >
+      {/* Background Image with Overlay and Transition */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* The Image */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: "url('/images/hero/hero.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.5, // Controlled opacity for text legibility
+          }}
+        />
+        
+        {/* Radial dark overlay for center focus */}
+        <div 
+          className="absolute inset-0" 
+          style={{ 
+            background: "radial-gradient(circle at center, transparent 0%, var(--theme-bg) 80%)" 
+          }}
+        />
+
+        {/* Bottom transition gradient to discography */}
+        <div 
+          className="absolute bottom-0 left-0 w-full h-32 z-10"
+          style={{
+            background: "linear-gradient(to bottom, transparent, var(--theme-bg))"
+          }}
+        />
+      </div>
+
       {/* Background gradient orbs */}
       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"

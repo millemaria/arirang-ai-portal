@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, useMemo } from "react";
 import { Album } from "@/lib/types";
 import AlbumCard from "./AlbumCard";
 
@@ -8,9 +9,50 @@ interface AlbumGridProps {
 }
 
 export default function AlbumGrid({ albums }: AlbumGridProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Generate random stars only on the client
+  const stars = useMemo(() => {
+    if (!mounted) return [];
+    return Array.from({ length: 100 }).map((_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: Math.random() * 2 + 1,
+      duration: Math.random() * 2 + 1,
+      delay: Math.random() * 3,
+      color: Math.random() > 0.7 ? "var(--theme-primary)" : "white",
+    }));
+  }, [mounted]);
+
   return (
-    <section id="albums" className="w-full py-20 px-20 flex flex-col items-center">
-      <div className="w-full max-w-7xl">
+    <section id="albums" className="relative w-full py-20 px-4 md:px-20 flex flex-col items-center overflow-hidden">
+      {/* Animated Stars Background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="absolute rounded-full animate-twinkle"
+            style={{
+              top: star.top,
+              left: star.left,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              backgroundColor: star.color,
+              "--twinkle-duration": `${star.duration}s`,
+              animationDelay: `${star.delay}s`,
+              boxShadow: `0 0 ${star.size * 3}px ${star.color}`,
+              opacity: 0.6,
+            } as React.CSSProperties}
+          />
+        ))}
+      </div>
+
+      <div className="w-full max-w-7xl relative z-10">
         {/* Section header */}
         <div
           className="text-center animate-fade-in-up flex flex-col items-center"

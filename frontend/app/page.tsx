@@ -98,24 +98,22 @@ export default async function Home() {
   const albums = await getAlbums();
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center gap-12 pb-20">
+    <main className="min-h-screen w-full flex flex-col items-center pb-20">
       <div className="w-full">
         <Hero />
       </div>
-
-      <div className="section-divider w-full max-w-6xl mx-auto opacity-50" />
 
       <div className="w-full">
         <AlbumGrid albums={albums} />
       </div>
 
-      <div className="section-divider w-full max-w-6xl mx-auto opacity-50" />
+      <div className="section-divider w-full max-w-6xl mx-auto opacity-50 my-12" />
 
       <div className="w-full">
         <CountdownArirang />
       </div>
 
-      <div className="section-divider w-full max-w-6xl mx-auto opacity-50" />
+      <div className="section-divider w-full max-w-6xl mx-auto opacity-50 my-12" />
 
       <div className="w-full">
         <ChatPanel />
